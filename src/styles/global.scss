@@ -1,0 +1,401 @@
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Protest+Revolution&display=swap');
+
+.hero-main {
+    .Wtrn_title, .Wtrn_subtitle {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    
+    .Wtrn_btn {
+        // opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+        transition-delay: 0.2s;
+    }
+}
+
+
+body {
+    background-color: #000;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('../assets/bg.png');
+        background-size: 128px;
+        background-repeat: repeat;
+        opacity: 0.04;
+    }
+}
+
+// fonts //
+@font-face {
+    font-family: 'Cal Sans';
+    src: url('../assets/fonts/CalSans-Regular.woff2') format('woff2');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+@font-face {
+    font-family: 'Highman Trial';
+    src: url('../assets/fonts/HighmanTrial-Regular.woff2') format('woff2'),
+        url('../assets/fonts/HighmanTrial-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+
+body {
+    a {
+        text-decoration: none;
+        color: #fff;
+    }
+}
+
+@mixin font-cal-sans {
+    font-family: 'Cal Sans', sans-serif;
+}
+
+@mixin font-plus-jakarta {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+@mixin bg-grediant {
+    background: linear-gradient(45deg, #FF8C00 0%, #4830D2 100%);
+}
+
+@mixin container {
+    max-width: 1350px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+@mixin font-urbanist {
+    font-family: 'Urbanist', sans-serif;
+}
+
+.container {
+    @include container;
+}
+
+// navbar start //
+header {
+    @include font-urbanist;
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+
+    .navbar {
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .logo {
+                max-width: 33.33%;
+                width: 100%;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+
+                img {
+                    width: 70px;
+                }
+            }
+
+            .links {
+                max-width: 33.33%;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                ul {
+                    display: flex;
+                    list-style: none;
+                    gap: 50px;
+
+                    li {
+                        a {
+                            text-decoration: none;
+                            color: #fff;
+                        }
+                    }
+                }
+            }
+
+            .CTA {
+                max-width: 33.33%;
+                width: 100%;
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+            }
+        }
+    }
+}
+
+.Wtrn_btn {
+    @include bg-grediant;
+    padding: 0.8px;
+    border-radius: 30px;
+    @include font-urbanist;
+    font-size: 16px;
+
+    div {
+        background: #000;
+        padding: 10px 25px;
+        border-radius: 30px;
+    }
+}
+
+// navbar end //
+
+
+
+// Hero-banner-start //
+.bottom_bg {
+    opacity: 0.3;
+}
+
+
+.hero-banner {
+
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    width: 100%;
+    color: #fff;
+    text-align: center;
+    @include font-cal-sans;
+    position: relative;
+
+
+    &::before {
+        content: "";
+        position: absolute;
+        bottom: -27px;
+        left: 0;
+        width: 100%;
+        height: 50px;
+        background-color: #000000;
+        z-index: 10;
+        filter: blur(13px);
+        opacity: 1;
+    }
+
+
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        flex-direction: column;
+    }
+
+    .Wtrn_title {
+        font-size: 80.5px;
+        margin-bottom: 0px;
+        letter-spacing: 2px;
+        background: linear-gradient(45deg, #fff 0%, #6f6f6f 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: #fff;
+        line-height: 95px;
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+        overflow: hidden;
+
+        .reveal-word {
+            display: inline-block;
+            transform: translateY(100%);
+            opacity: 0;
+        }
+    }
+
+    .Wtrn_subtitle {
+        font-size: 22px;
+        @include font-urbanist;
+        max-width: 50%;
+        margin: 0 auto;
+        margin-bottom: 10px;
+        line-height: 35px;
+        color: #d2d2d2;
+    }
+}
+
+// Hero-banner-start //
+
+
+// loader-start //
+
+.loader {
+    position: fixed;
+    inset: 0;
+    background: #000;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    overflow: hidden;
+    transition: opacity 0.5s ease;
+    user-select: none;
+    // font-family: 'Plus Jakarta Sans', sans-serif;
+
+
+    .loader_inner_wrap {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+        width: 100%;
+        max-width: 320px;
+        position: relative;
+
+        &::after {
+            content: "";
+            height: 30px;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            position: absolute;
+            top: -20px;
+            left: 0;
+            z-index: 1;
+            filter: blur(10px);
+        }
+    }
+
+    .text-container {
+        position: relative;
+        height: 60px;
+
+        .loader-text {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            transform: translate(-50%, 20px);
+            font-family: 'Protest Revolution', sans-serif;
+            font-size: 35px;
+            color: #fff;
+            opacity: 0;
+            pointer-events: none;
+            white-space: nowrap;
+            text-transform: uppercase;
+        }
+    }
+
+    .progress-track {
+        width: 60%;
+        height: 2px;
+        background-color: #222;
+        border-radius: 50px;
+        position: relative;
+
+        .glow-bar {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(to right,
+                    rgba(0, 0, 0, 1) 0%,
+                    rgba(153, 49, 5, 0.3) 10%,
+                    #993105 20%,
+                    #993105 80%,
+                    #993105 90%,
+                    #993105 100%);
+
+            z-index: 1;
+            pointer-events: none;
+            filter: blur(0.5px);
+        }
+
+        .dot {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 13px;
+            height: 13px;
+            background-color: #757575;
+            backdrop-filter: blur(10px);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            display: none;
+        }
+    }
+}
+
+
+.react-grid-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    font-family: 'Highman Trial';
+
+    .reveal {
+        visibility: hidden;
+        position: relative;
+        width: 80%;
+        height: 80%;
+        max-width: 500px;
+        overflow: hidden;
+    }
+  
+    .react-grid-heading {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -41%);
+      font-size: 30rem;
+      line-height: normal;
+      font-weight: bold;
+      color: #C96121;
+      margin: 0;
+      user-select: none;
+    }
+  
+    .react-grid-center-image {
+      position: relative;
+      z-index: 10;
+      width: 350px;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 5px 5px 200px rgba(0, 0, 0, 1);
+      pointer-events: none;
+      transform: rotate(-5deg) !important;
+    }
+  
+    .react-grid-overlay {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      z-index: 20;
+    }
+  }
+  
