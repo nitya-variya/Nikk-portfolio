@@ -5,6 +5,7 @@ import glsl from 'vite-plugin-glsl';
 
 export default defineConfig({
   plugins: [react(), glsl()],
+  base: '/Nitya-Portfolio/',
   optimizeDeps: {
     include: ['three'],
   },
