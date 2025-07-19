@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import logo from "../assets/my-logo.svg";
 
 const navLinks = [
@@ -7,7 +7,29 @@ const navLinks = [
   { name: 'Experience', path: '/experience' },
 ];
 
+let sticky = false;
 const Navbar = () => {
+  const handleScroll = () => {
+    if (window.scrollY > 100) {
+      if (!sticky) {
+        sticky = true;
+        document.querySelector('.navbar').classList.add('sticky');
+      }
+    } else {
+      if (sticky) {
+        sticky = false;
+        document.querySelector('.navbar').classList.remove('sticky');
+      }
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
     <header>
       <div className="navbar">

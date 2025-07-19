@@ -1,22 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Protest+Revolution&display=swap');
-
-.hero-main {
-    .Wtrn_title, .Wtrn_subtitle {
-        opacity: 0;
-        transform: translateY(20px);
-        transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-    
-    .Wtrn_btn {
-        // opacity: 0;
-        transform: translateY(20px);
-        transition: opacity 0.6s ease, transform 0.6s ease;
-        transition-delay: 0.2s;
-    }
-}
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
 
 
 body {
@@ -36,6 +20,105 @@ body {
         background-size: 128px;
         background-repeat: repeat;
         opacity: 0.04;
+    }
+}
+
+// loader-start //
+
+.loader {
+    position: fixed;
+    inset: 0;
+    background: #000;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    overflow: hidden;
+    transition: opacity 0.5s ease;
+    user-select: none;
+
+
+    .loader_inner_wrap {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+        width: 100%;
+        max-width: 320px;
+        position: relative;
+
+        &::after {
+            content: "";
+            height: 30px;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            position: absolute;
+            top: -20px;
+            left: 0;
+            z-index: 1;
+            filter: blur(10px);
+        }
+    }
+
+    .text-container {
+        position: relative;
+        height: 60px;
+
+        .loader-text {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            transform: translate(-50%, 20px);
+            font-family: 'Protest Revolution', sans-serif;
+            font-size: 35px;
+            color: #fff;
+            opacity: 0;
+            pointer-events: none;
+            white-space: nowrap;
+            text-transform: uppercase;
+        }
+    }
+
+    .progress-track {
+        width: 60%;
+        height: 2px;
+        background-color: #222;
+        border-radius: 50px;
+        position: relative;
+
+        .glow-bar {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(to right,
+                    rgba(0, 0, 0, 1) 0%,
+                    rgba(153, 49, 5, 0.3) 10%,
+                    #993105 20%,
+                    #993105 80%,
+                    #993105 90%,
+                    #993105 100%);
+
+            z-index: 1;
+            pointer-events: none;
+            filter: blur(0.5px);
+        }
+
+        .dot {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 13px;
+            height: 13px;
+            background-color: #757575;
+            backdrop-filter: blur(10px);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            display: none;
+        }
     }
 }
 
@@ -101,10 +184,20 @@ header {
     width: 100%;
 
     .navbar {
+        &.sticky {
+            .container{
+                background-color: rgba(255,255,255,0.1);
+                backdrop-filter: blur(10px);
+                margin-top: 20px;
+            }
+        }
         .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            transition: 0.5s linear;
+            border-radius: 40px;
+            padding: 0 20px;
 
             .logo {
                 max-width: 33.33%;
@@ -245,105 +338,6 @@ header {
 // Hero-banner-start //
 
 
-// loader-start //
-
-.loader {
-    position: fixed;
-    inset: 0;
-    background: #000;
-    z-index: 9999;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    overflow: hidden;
-    transition: opacity 0.5s ease;
-    user-select: none;
-    // font-family: 'Plus Jakarta Sans', sans-serif;
-
-
-    .loader_inner_wrap {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 25px;
-        width: 100%;
-        max-width: 320px;
-        position: relative;
-
-        &::after {
-            content: "";
-            height: 30px;
-            width: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
-            position: absolute;
-            top: -20px;
-            left: 0;
-            z-index: 1;
-            filter: blur(10px);
-        }
-    }
-
-    .text-container {
-        position: relative;
-        height: 60px;
-
-        .loader-text {
-            position: absolute;
-            left: 50%;
-            top: 0;
-            transform: translate(-50%, 20px);
-            font-family: 'Protest Revolution', sans-serif;
-            font-size: 35px;
-            color: #fff;
-            opacity: 0;
-            pointer-events: none;
-            white-space: nowrap;
-            text-transform: uppercase;
-        }
-    }
-
-    .progress-track {
-        width: 60%;
-        height: 2px;
-        background-color: #222;
-        border-radius: 50px;
-        position: relative;
-
-        .glow-bar {
-            position: absolute;
-            left: 0;
-            top: 0;
-            height: 100%;
-            width: 0%;
-            background: linear-gradient(to right,
-                    rgba(0, 0, 0, 1) 0%,
-                    rgba(153, 49, 5, 0.3) 10%,
-                    #993105 20%,
-                    #993105 80%,
-                    #993105 90%,
-                    #993105 100%);
-
-            z-index: 1;
-            pointer-events: none;
-            filter: blur(0.5px);
-        }
-
-        .dot {
-            position: absolute;
-            top: 50%;
-            left: 0;
-            width: 13px;
-            height: 13px;
-            background-color: #757575;
-            backdrop-filter: blur(10px);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 2;
-            display: none;
-        }
-    }
-}
 
 
 .react-grid-container {
@@ -387,6 +381,8 @@ header {
       box-shadow: 5px 5px 200px rgba(0, 0, 0, 1);
       pointer-events: none;
       transform: rotate(-5deg) !important;
+      object-fit: cover;
+      transition: none;
     }
   
     .react-grid-overlay {
@@ -398,4 +394,11 @@ header {
       z-index: 20;
     }
   }
+  .wtrn_perosnal_info{
+    p{
+       color: #fff;
+       max-width: 50%;
+       padding-left: 70px;
+    }
+}
   
