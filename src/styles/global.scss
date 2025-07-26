@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Protest+Revolution&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 
 body {
@@ -8,6 +9,10 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
+    a:hover {
+        cursor: url('../assets/pointinghand.svg'), auto;
+    }
 
     &::before {
         content: "";
@@ -162,6 +167,9 @@ body {
     background: linear-gradient(45deg, #FF8C00 0%, #4830D2 100%);
 }
 
+@mixin font-space-mono {
+    font-family: 'Space Mono', monospace;
+}
 @mixin container {
     max-width: 1350px;
     width: 100%;
@@ -185,11 +193,8 @@ header {
 
     .navbar {
         &.sticky {
-            .container{
-                background-color: rgba(255,255,255,0.1);
-                backdrop-filter: blur(10px);
-                margin-top: 20px;
-            }
+            background-color: rgba(0,0,0,0.2);
+            backdrop-filter: blur(10px);
         }
         .container {
             display: flex;
@@ -343,22 +348,13 @@ header {
 .react-grid-container {
     position: relative;
     width: 100%;
-    height: 100vh;
+    padding: 150px 0;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
     font-family: 'Highman Trial';
 
-    .reveal {
-        visibility: hidden;
-        position: relative;
-        width: 80%;
-        height: 80%;
-        max-width: 500px;
-        overflow: hidden;
-    }
-  
     .react-grid-heading {
       position: absolute;
       top: 50%;
@@ -367,16 +363,19 @@ header {
       font-size: 30rem;
       line-height: normal;
       font-weight: bold;
-      color: #C96121;
       margin: 0;
       user-select: none;
+      z-index: 1;
+      background: radial-gradient(101.52% 105.36% at 44.98% 76.29%, #000 7.6%, #C96121 49.72%, #c96121 66.37%, #c96121 200%);
+      color: transparent;
+      background-clip: text;
     }
   
     .react-grid-center-image {
       position: relative;
       z-index: 10;
       width: 350px;
-      height: auto;
+      height: 500px;
       border-radius: 12px;
       box-shadow: 5px 5px 200px rgba(0, 0, 0, 1);
       pointer-events: none;
@@ -395,10 +394,13 @@ header {
     }
   }
   .wtrn_perosnal_info{
+    margin-top: -70px;
     p{
        color: #fff;
        max-width: 50%;
        padding-left: 70px;
+       @include font-space-mono;
+       text-transform: uppercase;
     }
 }
   

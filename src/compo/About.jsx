@@ -4,8 +4,8 @@ import about from '../assets/about_image.jpeg';
 import topleftimg from '../assets/about-first.png';
 
 const poses = {
-  topLeft: topleftimg,
-  topCenter: about,
+  topLeft: about,
+  topCenter: topleftimg,
   topRight: about,
   bottomLeft: about,
   bottomCenter: about,
@@ -18,7 +18,7 @@ const gridKeys = [
 ];
 
 export default function InteractiveGrid() {
-  const [currentPose, setCurrentPose] = useState(poses.topLeft);
+  const [currentPose, setCurrentPose] = useState(poses.topCenter);
   const imageRef = useRef(null);
 
   useEffect(() => {
@@ -32,6 +32,7 @@ export default function InteractiveGrid() {
   return (
     <section className='personal_About_us'>
       <div className="react-grid-container">
+        <div className="img_content_wrap">
         <h2 className="react-grid-heading">HELLOOO</h2>
         <img
           ref={imageRef}
@@ -39,6 +40,7 @@ export default function InteractiveGrid() {
           alt="Center Pose"
           className="react-grid-center-image"
         />
+        </div>
 
         <div className="react-grid-overlay">
           {gridKeys.map((key, index) => (
