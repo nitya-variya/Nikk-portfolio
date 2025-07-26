@@ -30,6 +30,7 @@ const Herobanner = () => {
       <Bg_animation />    
       <div className="hero-banner" style={{ position: "relative", zIndex: 1 }}>
         <div className="container">
+          <span className='Bedge_part'>Forntend Master</span>
           <h1 className="Wtrn_title">Designs That Speak <br /> Code That Performs.</h1>    
           <p className="Wtrn_subtitle">Not just how it looks — how it feels, works, and lasts.</p>
           <a href="#" className="Wtrn_btn"><div>Explore Projects</div></a>

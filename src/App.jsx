@@ -7,6 +7,7 @@ import Herobanner from "./compo/Herobanner";
 import About from "./compo/About";
 import Loader from "./compo/Loader";
 import useLenis from './compo/Smoothscroll';
+import Projects from "./compo/Projects";
 
 function App() {
   useLenis();
@@ -19,6 +20,7 @@ function App() {
       <Navbar />
       <Herobanner />
       <About />
+      <Projects />
       {loading && <Loader onComplete={() => setLoading(false)} />}
     </>
   );

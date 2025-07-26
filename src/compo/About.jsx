@@ -34,12 +34,14 @@ export default function InteractiveGrid() {
       <div className="react-grid-container">
         <div className="img_content_wrap">
         <h2 className="react-grid-heading">HELLOOO</h2>
-        <img
-          ref={imageRef}
-          src={currentPose}
-          alt="Center Pose"
-          className="react-grid-center-image"
-        />
+        <div className="center_img_wrap">
+          <img
+            ref={imageRef}
+            src={currentPose}
+            alt="Center Pose"
+            className="react-grid-center-image"
+          />
+        </div>
         </div>
 
         <div className="react-grid-overlay">
@@ -66,6 +68,7 @@ export default function InteractiveGrid() {
           Always dreaming.
           It feels so good to create.
           A digital mind on display.</p>
+          <a href="#" className="Wtrn_btn"><div>Find Me</div></a>
       </div>
     </section>
   );
