@@ -88,10 +88,11 @@ function AnimatedBackground() {
 
 export default function Bg_animation() {
   return (
-    <div style={{ position: "absolute", inset: 0, zIndex: -1 }} className="bottom_bg">
+    <div className="bottom_bg">
       <Canvas camera={{ position: [0, 0, 1] }} dpr={[1, 2]}>
         <AnimatedBackground />
       </Canvas>
+      <div className="Wtrn_bg_border"></div>
     </div>
   );
 }

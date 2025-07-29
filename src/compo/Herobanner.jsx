@@ -26,17 +26,17 @@ const Herobanner = () => {
   }, []);
 
   return (
-    <main style={{ position: "relative", overflow: "hidden" }} className="hero-main">
+    <section style={{ position: "relative", overflow: "hidden" }} className="hero-main">
       <Bg_animation />    
-      <div className="hero-banner" style={{ position: "relative", zIndex: 1 }}>
+      <div className="hero-banner" style={{ position: "absolute", zIndex: 12 }}>
         <div className="container">
-          <span className='Bedge_part'>Forntend Master</span>
+          <span className='Bedge_part'>Frontend Master</span>
           <h1 className="Wtrn_title">Designs That Speak <br /> Code That Performs.</h1>    
           <p className="Wtrn_subtitle">Not just how it looks — how it feels, works, and lasts.</p>
           <a href="#" className="Wtrn_btn"><div>Explore Projects</div></a>
         </div>
       </div>
-    </main>
+    </section>
   );
 };
 

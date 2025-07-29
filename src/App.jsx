@@ -14,7 +14,21 @@ function App() {
   
   const [loading, setLoading] = useState(true);
 
+  // const body = document.tagname(body);
+  // window.rightClick = false;
 
+
+
+
+  function customCursor() {
+    document.addEventListener("mousemove", (e) => {
+      const cursor = document.querySelector(".custom-cursor");
+      cursor.style.left = e.clientX + "px";
+      cursor.style.top = e.clientY + "px";
+    });
+  }
+
+  customCursor();
   return (
     <>
       <Navbar />
@@ -22,6 +36,8 @@ function App() {
       <About />
       <Projects />
       {loading && <Loader onComplete={() => setLoading(false)} />}
+      
+      <div className="custom-cursor"></div>
     </>
   );
 }

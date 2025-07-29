@@ -9,6 +9,8 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    color: #fff;
+    user-select: none;
 
     a:hover {
         cursor: url('../assets/pointinghand.svg'), auto;
@@ -34,6 +36,17 @@ body {
     h5,
     h6 {
         margin: 0;
+    }
+
+    .custom-cursor{
+        height: 30px;
+        width: 30px;
+        position: fixed;
+        background-color: transparent;
+        border-radius: 50%;
+        border: 2px solid #993105;
+        transform: translate(-50%, -50%);
+        z-index: 1000;
     }
 }
 
@@ -202,9 +215,13 @@ header {
     width: 100%;
 
     .navbar {
+        top: 30px;
+        position: relative;
+        transition: 0.5s linear;
         &.sticky {
             background-color: rgba(0, 0, 0, 0.2);
             backdrop-filter: blur(10px);
+            top: 0;
         }
 
         .container {
@@ -278,38 +295,32 @@ header {
 
 
 // Hero-banner-start //
+.hero-main {
+    padding: 20px;
+}
+
 .bottom_bg {
     opacity: 0.3;
+    height: 100vh;
+
+    canvas{
+        border-radius: 25px;
+    }
 }
 
 
 .hero-banner {
-
-    height: 100vh;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 30px;
     width: 100%;
+    top: 0;
     color: #fff;
     text-align: center;
     @include font-cal-sans;
     position: relative;
-
-
-    &::before {
-        content: "";
-        position: absolute;
-        bottom: -27px;
-        left: 0;
-        width: 100%;
-        height: 50px;
-        background-color: #000000;
-        z-index: 10;
-        filter: blur(13px);
-        opacity: 1;
-    }
-
 
     .container {
         display: flex;
@@ -324,7 +335,12 @@ header {
         font-size: 18px;
         font-weight: 600;
         text-transform: uppercase;
-        background: linear-gradient(160deg, #4c4c4c 0%, rgba(255, 255, 255, 0.9), #4c4c4c 100%) 100% 100% / 100% 100%;
+        background: linear-gradient(
+            120deg,
+            #363636 20%,
+            rgba(255, 255, 255, 0.8) 40%,
+            #363636 60%
+          );
         background-size: 200% auto;
         background-position: 0% center;
         -webkit-background-clip: text;
@@ -332,19 +348,22 @@ header {
         -webkit-text-fill-color: transparent;
         padding: 5px 20px;
         border-radius: 30px;
-        animation: sweepGradient 2.5s linear infinite;
+        animation: sweepGradient 10s linear infinite;
         will-change: background-position;
-      }
-      
-      @keyframes sweepGradient {
+        border: 1px solid rgba(255, 255, 255, 0.2);
+
+    }
+
+    @keyframes sweepGradient {
         0% {
-          background-position: 0% center;
+            background-position: -200% center;
         }
+
         100% {
-          background-position: 200% center;
+            background-position: 200% center;
         }
-      }
-      
+    }
+
 
     .Wtrn_title {
         font-size: 80.5px;
