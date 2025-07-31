@@ -1,14 +1,14 @@
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 
-const greetings = ["Namaste", "Hola", "Bonjour","Olá", "Hello", "こんにちは"];
+const greetings = ["Namaste", "Hola", "Bonjour", "Olá", "Hello", "こんにちは"];
 
 const Loader = ({ onComplete }) => {
   const textsRef = useRef([]);
   const dotRef = useRef(null);
   const loaderRef = useRef(null);
   const barRef = useRef(null);
-  const glowRef = useRef(null); 
+  const glowRef = useRef(null);
 
   useEffect(() => {
     const tl = gsap.timeline({
@@ -26,13 +26,19 @@ const Loader = ({ onComplete }) => {
         y: 0,
         duration: 0.3,
         ease: "power2.out",
-      }).to(textsRef.current[i], {
-        opacity: 0,
-        y: -20,
-        duration: 0.2,
-        ease: "power2.in",
       });
+
+      // Only animate out if NOT the last greeting
+      if (i !== greetings.length - 1) {
+        tl.to(textsRef.current[i], {
+          opacity: 0,
+          y: -20,
+          duration: 0.2,
+          ease: "power2.in",
+        });
+      }
     });
+
 
     // Dot and glow-bar move together
     const progressDuration = greetings.length * 0.5;
@@ -73,8 +79,7 @@ const Loader = ({ onComplete }) => {
       transform: "translateY(-100%)",
       opacity: 0,
       duration: 0.4,
-      ease: "power2.inOut",
-
+      ease: "sine.out",
       onComplete: () => {
         loaderRef.current.style.transform = "translateY(0)";
       },

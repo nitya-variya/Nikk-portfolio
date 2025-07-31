@@ -38,16 +38,10 @@ body {
         margin: 0;
     }
 
-    .custom-cursor{
-        height: 30px;
-        width: 30px;
-        position: fixed;
-        background-color: transparent;
-        border-radius: 50%;
-        border: 2px solid #993105;
-        transform: translate(-50%, -50%);
-        z-index: 1000;
+    img{
+        width: 100%;
     }
+   
 }
 
 // loader-start //
@@ -218,6 +212,7 @@ header {
         top: 30px;
         position: relative;
         transition: 0.5s linear;
+
         &.sticky {
             background-color: rgba(0, 0, 0, 0.2);
             backdrop-filter: blur(10px);
@@ -285,7 +280,7 @@ header {
 
     div {
         background: #000;
-        padding: 10px 25px;
+        padding: 10px 30px;
         border-radius: 30px;
     }
 }
@@ -296,14 +291,14 @@ header {
 
 // Hero-banner-start //
 .hero-main {
-    padding: 20px;
+    padding: 15px;
 }
 
 .bottom_bg {
     opacity: 0.3;
-    height: 100vh;
+    height: 95vh;
 
-    canvas{
+    canvas {
         border-radius: 25px;
     }
 }
@@ -335,12 +330,10 @@ header {
         font-size: 18px;
         font-weight: 600;
         text-transform: uppercase;
-        background: linear-gradient(
-            120deg,
-            #363636 20%,
-            rgba(255, 255, 255, 0.8) 40%,
-            #363636 60%
-          );
+        background: linear-gradient(120deg,
+                #363636 20%,
+                rgba(255, 255, 255, 0.8) 40%,
+                #363636 60%);
         background-size: 200% auto;
         background-position: 0% center;
         -webkit-background-clip: text;
@@ -350,8 +343,6 @@ header {
         border-radius: 30px;
         animation: sweepGradient 10s linear infinite;
         will-change: background-position;
-        border: 1px solid rgba(255, 255, 255, 0.2);
-
     }
 
     @keyframes sweepGradient {
@@ -369,20 +360,14 @@ header {
         font-size: 80.5px;
         margin-bottom: 0px;
         letter-spacing: 2px;
-        background: linear-gradient(45deg, #fff 0%, #6f6f6f 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
-        color: #fff;
+        color: #c3c3c3;
         line-height: 95px;
         text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
-        overflow: hidden;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
 
-        .reveal-word {
-            display: inline-block;
-            transform: translateY(100%);
-            opacity: 0;
+        .word {
+            transition: transform .5s;
+            transform: translateY(115px);
         }
     }
 
@@ -423,9 +408,16 @@ header {
         margin: 0;
         user-select: none;
         z-index: 1;
-        background: radial-gradient(101.52% 105.36% at 44.98% 76.29%, #000 7.6%, #C96121 49.72%, #c96121 66.37%, #c96121 200%);
-        color: transparent;
-        background-clip: text;
+    
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+        display: flex;
+        overflow: hidden;
+
+        .char{
+            background: radial-gradient(101.52% 105.36% at 44.98% 76.29%, #C96121 7.6%, #C96121 49.72%, #c96121 66.37%, #c96121 200%);
+            color:transparent;
+            background-clip: text;
+        }
     }
 
     .center_img_wrap {
@@ -484,4 +476,8 @@ header {
     .Wtrn_btn {
         display: inline-block;
     }
+}
+
+.niic_section{
+    margin: 100px 0;
 }

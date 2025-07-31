@@ -1,6 +1,6 @@
 import { useRef, useEffect } from "react";
 import * as THREE from "three";
-import { Canvas, useFrame, extend, useThree } from "@react-three/fiber";
+import { Canvas, useThree, extend } from "@react-three/fiber";
 import { shaderMaterial } from "@react-three/drei";
 
 // ✅ Custom Shader Material — with bluish radial center
@@ -45,10 +45,7 @@ const NoiseMaterial = shaderMaterial(
       vec3 purple = vec3(0.4, 0.3, 0.82);     // #4830D2
       vec3 bluish = vec3(0.3, 0.4, 0.9);      // bluish purple
 
-      // Base blend of orange and purple
       vec3 blendColor = mix(purple, orange, n * 0.55 + 0.225);
-
-      // ✅ Add radial bluish center to blobs
       float centerFalloff = smoothstep(0.15, 0.0, abs(n - 0.5));
       blendColor = mix(blendColor, bluish, centerFalloff * 0.5);
 
@@ -65,9 +62,10 @@ extend({ NoiseMaterial });
 function AnimatedBackground() {
   const materialRef = useRef();
   const meshRef = useRef();
-  const { size, gl } = useThree();
+  const { size, gl, scene, camera } = useThree();
 
-  useFrame(() => {
+  // Run only once after mount
+  useEffect(() => {
     if (materialRef.current) {
       materialRef.current.uResolution.set(size.width, size.height);
     }
@@ -76,7 +74,10 @@ function AnimatedBackground() {
       const aspect = size.width / size.height;
       meshRef.current.scale.set(2 * aspect, 2, 1);
     }
-  });
+
+    gl.render(scene, camera); // manually render once
+
+  }, [size, gl, scene, camera]);
 
   return (
     <mesh ref={meshRef}>
@@ -89,7 +90,7 @@ function AnimatedBackground() {
 export default function Bg_animation() {
   return (
     <div className="bottom_bg">
-      <Canvas camera={{ position: [0, 0, 1] }} dpr={[1, 2]}>
+      <Canvas camera={{ position: [0, 0, 1] }} dpr={1}>
         <AnimatedBackground />
       </Canvas>
       <div className="Wtrn_bg_border"></div>
